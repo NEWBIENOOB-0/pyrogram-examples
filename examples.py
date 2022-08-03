@@ -66,6 +66,11 @@ def send_document(bot, message):
     bot.send_document(message.chat.id,"BQACAgUAAxkBAANUYrwlqbV0jIJnR8OwuVTCbYHS_7MAAtYFAALMlNlVyGtBqixT5f4eBA")
 
  #get file video file id
+@bot.on_message(filters.video & filters.private)
+def get_video(bot, message):
+    message.reply(message.video.file_id) 
+    
+#send video through file id
 @bot.on_message(filters.command("video"))
 def send_video(bot, message):
     bot.send_video(message.chat.id,"BAACAgUAAxkBAANYYrwmnntFMc7Nfjp0UenP7yaw8C4AAtQGAAJW1XlVcszTktD5PRkeBA")
